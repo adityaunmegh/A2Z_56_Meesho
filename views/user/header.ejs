@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meesho Navbar</title>
-  <link rel="stylesheet" href="/user/style.css">
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/user/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
-  <!-- Top Navbar -->
+  <!-- ================= TOP NAVBAR ================= -->
   <header class="navbar">
     <div class="logo">
       <h1>meesho</h1>
@@ -19,10 +17,9 @@
 
     <div class="search-box">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" placeholder="Try Saree, Kurti or Search by Product Code">
+      <input type="text" placeholder="Try Saree, Kurti or Search by Product Code" />
     </div>
 
-    <!-- Hamburger button -->
     <div class="menu-toggle" id="menu-toggle">
       <i class="fa-solid fa-bars"></i>
     </div>
@@ -31,11 +28,12 @@
       <a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
       <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
 
-      <!-- Profile Dropdown -->
+      <!-- Profile -->
       <div class="profile-dropdown">
         <div class="profile-box">
           <i class="fa-regular fa-user"></i>
           <span>Profile</span>
+          <i class="fa-solid fa-angle-down"></i>
         </div>
 
         <div class="profile-menu">
@@ -45,27 +43,311 @@
         </div>
       </div>
 
-      <div class="cart-box">
+      <a href="/cart" class="cart-box">
         <i class="fa-solid fa-cart-shopping"></i>
         <span>Cart</span>
-      </div>
+      </a>
     </div>
   </header>
 
-  <!-- Bottom Category Navbar -->
-  <nav class="bottom-navbar" id="bottom-navbar">
-    <a href="#">Fashion</a>
-    <a href="#">Mobile</a>
-    <a href="#">Electricity</a>
-    <a href="#">Home appliances</a>
-    <a href="#">Toys & Gift</a>
-    <a href="#">Book</a>
-    <a href="#">Furniture</a>
-    <a href="#">Sport</a>
-    <a href="#">Grocery</a>
+  <!-- ================= BOTTOM NAVBAR ================= -->
+  <nav class="bottom-navbar">
+
+    <!-- Fashion -->
+    <div class="nav-item">
+      <a href="#">Fashion</a>
+      <div class="mega-menu mega-left">
+        <div class="mega-column">
+          <h4>Women Ethnic</h4>
+          <a href="#">Sarees</a>
+          <a href="#">Kurtis</a>
+          <a href="#">Lehengas</a>
+          <a href="#">Blouses</a>
+          <a href="#">Dupattas</a>
+        </div>
+        <div class="mega-column">
+          <h4>Women Western</h4>
+          <a href="#">Tops</a>
+          <a href="#">Jeans</a>
+          <a href="#">Dresses</a>
+          <a href="#">Jumpsuits</a>
+          <a href="#">Skirts</a>
+        </div>
+        <div class="mega-column">
+          <h4>Men</h4>
+          <a href="#">Shirts</a>
+          <a href="#">T-Shirts</a>
+          <a href="#">Jeans</a>
+          <a href="#">Track Pants</a>
+          <a href="#">Jackets</a>
+        </div>
+        <div class="mega-column">
+          <h4>Footwear</h4>
+          <a href="#">Heels</a>
+          <a href="#">Sneakers</a>
+          <a href="#">Sandals</a>
+          <a href="#">Flats</a>
+          <a href="#">Sports Shoes</a>
+        </div>
+        <div class="mega-column">
+          <h4>Accessories</h4>
+          <a href="#">Handbags</a>
+          <a href="#">Jewellery</a>
+          <a href="#">Watches</a>
+          <a href="#">Belts</a>
+          <a href="#">Sunglasses</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile -->
+    <div class="nav-item">
+      <a href="#">Mobile</a>
+      <div class="mega-menu mega-left">
+        <div class="mega-column">
+          <h4>Smartphones</h4>
+          <a href="#">Samsung</a>
+          <a href="#">Realme</a>
+          <a href="#">Redmi</a>
+          <a href="#">iPhone</a>
+          <a href="#">OnePlus</a>
+        </div>
+        <div class="mega-column">
+          <h4>Accessories</h4>
+          <a href="#">Chargers</a>
+          <a href="#">Power Banks</a>
+          <a href="#">Covers</a>
+          <a href="#">Screen Guards</a>
+          <a href="#">Cables</a>
+        </div>
+        <div class="mega-column">
+          <h4>Audio</h4>
+          <a href="#">Earbuds</a>
+          <a href="#">Neckbands</a>
+          <a href="#">Headphones</a>
+          <a href="#">Bluetooth Speakers</a>
+        </div>
+        <div class="mega-column">
+          <h4>Smart Gadgets</h4>
+          <a href="#">Smart Watch</a>
+          <a href="#">Fitness Band</a>
+          <a href="#">Tablet</a>
+          <a href="#">Mobile Holder</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Electronics -->
+    <div class="nav-item">
+      <a href="#">Electronics</a>
+      <div class="mega-menu mega-center">
+        <div class="mega-column">
+          <h4>TV & Entertainment</h4>
+          <a href="#">Smart TV</a>
+          <a href="#">Soundbar</a>
+          <a href="#">Projector</a>
+          <a href="#">Set Top Box</a>
+        </div>
+        <div class="mega-column">
+          <h4>Computers</h4>
+          <a href="#">Laptop</a>
+          <a href="#">Keyboard</a>
+          <a href="#">Mouse</a>
+          <a href="#">Monitor</a>
+        </div>
+        <div class="mega-column">
+          <h4>Cameras</h4>
+          <a href="#">DSLR</a>
+          <a href="#">Action Camera</a>
+          <a href="#">Tripod</a>
+          <a href="#">Camera Bag</a>
+        </div>
+        <div class="mega-column">
+          <h4>Accessories</h4>
+          <a href="#">Pendrive</a>
+          <a href="#">Hard Disk</a>
+          <a href="#">Printer</a>
+          <a href="#">Router</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Home Appliances -->
+    <div class="nav-item">
+      <a href="#">Home appliances</a>
+      <div class="mega-menu mega-center">
+        <div class="mega-column">
+          <h4>Kitchen</h4>
+          <a href="#">Mixer</a>
+          <a href="#">Microwave</a>
+          <a href="#">Induction</a>
+          <a href="#">Toaster</a>
+        </div>
+        <div class="mega-column">
+          <h4>Cleaning</h4>
+          <a href="#">Vacuum Cleaner</a>
+          <a href="#">Mop Set</a>
+          <a href="#">Steam Cleaner</a>
+        </div>
+        <div class="mega-column">
+          <h4>Cooling</h4>
+          <a href="#">Fan</a>
+          <a href="#">Air Cooler</a>
+          <a href="#">AC</a>
+        </div>
+        <div class="mega-column">
+          <h4>Laundry</h4>
+          <a href="#">Washing Machine</a>
+          <a href="#">Iron</a>
+          <a href="#">Dryer Stand</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toys -->
+    <div class="nav-item">
+      <a href="#">Toys & Gift</a>
+      <div class="mega-menu mega-center">
+        <div class="mega-column">
+          <h4>Toys</h4>
+          <a href="#">Remote Car</a>
+          <a href="#">Soft Toys</a>
+          <a href="#">Blocks</a>
+          <a href="#">Educational Toys</a>
+        </div>
+        <div class="mega-column">
+          <h4>Gift Items</h4>
+          <a href="#">Photo Frames</a>
+          <a href="#">Gift Hampers</a>
+          <a href="#">Greeting Cards</a>
+          <a href="#">Surprise Box</a>
+        </div>
+        <div class="mega-column">
+          <h4>Kids Zone</h4>
+          <a href="#">School Bags</a>
+          <a href="#">Water Bottles</a>
+          <a href="#">Color Kits</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Book -->
+    <div class="nav-item">
+      <a href="#">Book</a>
+      <div class="mega-menu mega-right">
+        <div class="mega-column">
+          <h4>Study</h4>
+          <a href="#">School Books</a>
+          <a href="#">Competitive Exams</a>
+          <a href="#">Language Books</a>
+        </div>
+        <div class="mega-column">
+          <h4>Reading</h4>
+          <a href="#">Novels</a>
+          <a href="#">Self Help</a>
+          <a href="#">Biography</a>
+          <a href="#">Story Books</a>
+        </div>
+        <div class="mega-column">
+          <h4>Office & Stationery</h4>
+          <a href="#">Notebooks</a>
+          <a href="#">Pens</a>
+          <a href="#">Files</a>
+          <a href="#">Markers</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Furniture -->
+    <div class="nav-item">
+      <a href="#">Furniture</a>
+      <div class="mega-menu mega-right">
+        <div class="mega-column">
+          <h4>Living Room</h4>
+          <a href="#">Sofa</a>
+          <a href="#">Center Table</a>
+          <a href="#">TV Unit</a>
+        </div>
+        <div class="mega-column">
+          <h4>Bedroom</h4>
+          <a href="#">Bed</a>
+          <a href="#">Wardrobe</a>
+          <a href="#">Mattress</a>
+        </div>
+        <div class="mega-column">
+          <h4>Study</h4>
+          <a href="#">Study Table</a>
+          <a href="#">Office Chair</a>
+          <a href="#">Bookshelf</a>
+        </div>
+        <div class="mega-column">
+          <h4>Storage</h4>
+          <a href="#">Cabinet</a>
+          <a href="#">Drawer Unit</a>
+          <a href="#">Shoe Rack</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sport -->
+    <div class="nav-item">
+      <a href="#">Sport</a>
+      <div class="mega-menu mega-right">
+        <div class="mega-column">
+          <h4>Fitness</h4>
+          <a href="#">Dumbbells</a>
+          <a href="#">Yoga Mat</a>
+          <a href="#">Resistance Bands</a>
+        </div>
+        <div class="mega-column">
+          <h4>Outdoor</h4>
+          <a href="#">Cricket Bat</a>
+          <a href="#">Football</a>
+          <a href="#">Badminton</a>
+        </div>
+        <div class="mega-column">
+          <h4>Sportswear</h4>
+          <a href="#">Track Pants</a>
+          <a href="#">Jerseys</a>
+          <a href="#">Running Shoes</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grocery -->
+    <div class="nav-item">
+      <a href="#">Grocery</a>
+      <div class="mega-menu mega-right">
+        <div class="mega-column">
+          <h4>Staples</h4>
+          <a href="#">Rice</a>
+          <a href="#">Atta</a>
+          <a href="#">Dal</a>
+          <a href="#">Sugar</a>
+        </div>
+        <div class="mega-column">
+          <h4>Snacks</h4>
+          <a href="#">Biscuits</a>
+          <a href="#">Chips</a>
+          <a href="#">Namkeen</a>
+        </div>
+        <div class="mega-column">
+          <h4>Beverages</h4>
+          <a href="#">Tea</a>
+          <a href="#">Coffee</a>
+          <a href="#">Juices</a>
+        </div>
+        <div class="mega-column">
+          <h4>Daily Needs</h4>
+          <a href="#">Soap</a>
+          <a href="#">Shampoo</a>
+          <a href="#">Toothpaste</a>
+        </div>
+      </div>
+    </div>
+    <br>
   </nav>
 
-  <!-- Separate JS file -->
   <script src="/user/script.js"></script>
 </body>
 </html>
