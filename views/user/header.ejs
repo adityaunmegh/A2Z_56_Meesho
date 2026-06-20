@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meesho Navbar</title>
+  <link rel="stylesheet" href="/user/style.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <h1>meesho</h1>
+    </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Try Saree, Kurti or Search by Product Code">
+    </div>
+
+    <!-- Hamburger button -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="nav-right" id="nav-right">
+      <a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+
+      <!-- Profile Dropdown -->
+      <div class="profile-dropdown">
+        <div class="profile-box">
+          <i class="fa-regular fa-user"></i>
+          <span>Profile</span>
+        </div>
+
+        <div class="profile-menu">
+          <a href="/signup">Sign Up</a>
+          <a href="/my-orders">My Orders</a>
+          <a href="/delete-account">Delete Account</a>
+        </div>
+      </div>
+
+      <div class="cart-box">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Cart</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Bottom Category Navbar -->
+  <nav class="bottom-navbar" id="bottom-navbar">
+    <a href="#">Fashion</a>
+    <a href="#">Mobile</a>
+    <a href="#">Electricity</a>
+    <a href="#">Home appliances</a>
+    <a href="#">Toys & Gift</a>
+    <a href="#">Book</a>
+    <a href="#">Furniture</a>
+    <a href="#">Sport</a>
+    <a href="#">Grocery</a>
+  </nav>
+
+  <!-- Separate JS file -->
+  <script src="/user/script.js"></script>
+</body>
+</html>

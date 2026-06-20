@@ -18,7 +18,7 @@ app.use(session({
 }))
 
 
-//app.use('/',user);
+app.use('/',user);
 //app.use('/admin',admin);
 
 app.listen(3000);
