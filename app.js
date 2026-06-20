@@ -1,28 +1,36 @@
-var express=require('express');
-    var fileupload=require('express-fileupload');
-    var session=require('express-session');
-    require('dotenv').config();
-    console.log(process.env.EMAIL_USER);
-    var setupDatabase = require('./dbSetup');
+var express = require('express');
+var session = require('express-session');
+var fileupload = require('express-fileupload');
+require('dotenv').config();
 
 var app = express();
+
+var setupDatabase = require('./dbSetup');
+var admin = require('./Routes/admin.js');
+var user = require('./Routes/user.js');
 
 // Initialize database on startup
 setupDatabase();
 
-app.set('view engine','ejs');
+// View engine and middleware
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(fileupload());
+
+// Session
 app.use(session({
-    secret: 'mysecretkey',
+    secret: process.env.SESSION_SECRET || 'mysecretkey',
     resave: false,
-     saveUninitialized: true
+    saveUninitialized: true
 }));
-var user=require('./routes/user.js');
-var admin=require('./routes/admin.js');
 
-app.use('/',user);
-app.use('/admin',admin);
+// Mount routes
+app.use('/', user);
+app.use('/admin', admin);
 
-app.listen(3000);
+// Start server
+var PORT = process.env.PORT || 3000;
+app.listen(PORT, function () {
+    console.log('Server running on port ' + PORT);
+});
