@@ -5,9 +5,11 @@ var bcrypt = require('bcrypt');
 var { sendOTP, generateOTP } = require('../utils/sendOTP');
 
 // Home page
+
 router.get('/', (req, res) => {
-    res.render('user/header.ejs');
+    res.render('user/home.ejs');
 });
+
 
 // Signup page
 router.get('/signup', (req, res) => {
