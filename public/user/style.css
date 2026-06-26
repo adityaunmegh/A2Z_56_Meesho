@@ -768,7 +768,7 @@ body {
 .brand-slider-section{
     width:100%;
     padding:60px 0;
-    background:#fff;
+    background:#F0E9FF;
     overflow:hidden;
 }
 
@@ -848,12 +848,12 @@ body {
     width:70%;
     height:auto;
     object-fit:contain;
-    filter:grayscale(100%);
+    /* filter:grayscale(100%);   */
     transition:.35s;
 }
 
 .brand-item:hover img{
-    filter:grayscale(0);
+    /* filter:grayscale(0); */
     transform:scale(1.08);
 }
 
