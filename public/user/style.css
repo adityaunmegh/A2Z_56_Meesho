@@ -144,6 +144,7 @@ body {
   overflow: hidden;
   display: none;
   z-index: 99999;
+  
 }
 
 .profile-menu a {
@@ -155,8 +156,15 @@ body {
   border-bottom: 1px solid #f1f1f1;
   transition: 0.3s;
   background: #fff;
+ 
 }
 
+.signup-btn {
+  background-color: #9f2089 !important;
+  color: white !important;
+  text-align: center
+  ;
+}
 .profile-menu a:last-child {
   border-bottom: none;
 }
