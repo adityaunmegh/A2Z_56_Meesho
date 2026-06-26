@@ -7,7 +7,9 @@ var { sendOTP, generateOTP } = require('../utils/sendOTP');
 // Home page
 
 router.get('/', (req, res) => {
-    res.render('user/home.ejs');
+    res.render('user/index', {
+        user: req.session.user || null
+    });
 });
 
 
@@ -225,5 +227,7 @@ router.get('/logout', (req, res) => {
         res.redirect('/');
     });
 });
+
+
 
 module.exports = router;
