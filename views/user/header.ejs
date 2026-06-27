@@ -7,11 +7,12 @@
 
   <link rel="stylesheet" href="/user/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-
+ 
   <!-- ================= TOP NAVBAR ================= -->
+   <section class="sticky top-0 z-1000 h-35 w-full" alt="header">
   <header class="navbar">
     <div class="logo">
       <h1>meesho</h1>
@@ -38,12 +39,20 @@
         </div>
 
         <div class="profile-menu">
-        <a href="/signup" class="signup-btn">Sign Up</a>
-<a href="/my-orders">My Orders</a>
-<a href="/delete-account">Delete Account</a>
+          
+            <% if (user && user.username) { %>
+              <a href="/dashboard"><%= user.username %></a>
+              <% } else { %>
+                <a href="/login">Login</a>
+                <% } %>
+          
+          <a href="/my-orders">My Orders</a>
+          <a href="/delete-account">Delete Account</a>
         </div>
       </div>
-
+      <script>
+        
+      </script>
       <a href="/cart" class="cart-box">
         <i class="fa-solid fa-cart-shopping"></i>
         <span>Cart</span>
@@ -63,6 +72,7 @@
     <div class="nav-item"><a href="#">Sport</a></div>
     <div class="nav-item"><a href="#">Grocery</a></div>
   </nav>
+  </section>
 
   
   
