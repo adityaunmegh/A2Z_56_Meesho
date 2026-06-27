@@ -7,11 +7,7 @@
 
   <link rel="stylesheet" href="/user/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<<<<<<< HEAD
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-=======
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
->>>>>>> ee1a56d7db2ee24204c2c2e5544d306873699eb2
 </head>
 <body>
  
@@ -32,8 +28,7 @@
     </div>
 
     <div class="nav-right" id="nav-right">
-      <a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
-      <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+     
 
       <div class="profile-dropdown">
         <div class="profile-box">
@@ -43,11 +38,6 @@
         </div>
 
         <div class="profile-menu">
-<<<<<<< HEAD
-        <a href="/signup" class="signup-btn">Sign Up</a>
-<a href="/my-orders">My Orders</a>
-<a href="/delete-account">Delete Account</a>
-=======
           
             <% if (user && user.username) { %>
               <a href="/dashboard"><%= user.username %></a>
@@ -57,7 +47,7 @@
           
           <a href="/my-orders">My Orders</a>
           <a href="/delete-account">Delete Account</a>
->>>>>>> ee1a56d7db2ee24204c2c2e5544d306873699eb2
+           <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
         </div>
       </div>
       <script>
