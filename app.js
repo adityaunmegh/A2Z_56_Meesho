@@ -1,29 +1,21 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-var session = require('express-session');
-var fileupload = require('express-fileupload');
+const session = require('express-session');
+const fileupload = require('express-fileupload');
 require('dotenv').config();
 
-var app = express();
+const setupDatabase = require('./dbSetup');
+const admin = require('./routes/admin');
+const user = require('./routes/user');
 
-var setupDatabase = require('./dbSetup');
-var admin = require('./Routes/admin.js');
-var user = require('./Routes/user.js');
-var setupDatabase = require('./dbSetup');
-var admin = require('./routes/admin.js');
-var user = require('./routes/user.js');
-var sai = require('./routes/sai.js');
-var rahul = require('./routes/rahul.js');
-
-
-
-// Initialize database on startup
+// Database
 setupDatabase();
 
-// View engine and middleware
-// Middleware
+// View Engine
 app.set('view engine', 'ejs');
+
+// Middleware
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(fileupload());
@@ -31,29 +23,17 @@ app.use(fileupload());
 // Session
 app.use(session({
     secret: process.env.SESSION_SECRET || 'mysecretkey',
-    secret: 'mysecretkey',
     resave: false,
     saveUninitialized: true
 }));
 
-// Mount routes
-app.use('/', user);
-app.use('/admin', admin);
-app.use('/sai', sai);
-app.use('/rahul', rahul);
-
-// Start server
-var PORT = process.env.PORT || 3000;
-app.listen(PORT, function () {
-    console.log('Server running on port ' + PORT);
-});
 // Routes
 app.use('/', user);
 app.use('/admin', admin);
-app.use('/sai', sai);
-app.use('/rahul', rahul);
 
+// Server
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });

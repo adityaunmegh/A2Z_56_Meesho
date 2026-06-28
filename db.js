@@ -4,7 +4,7 @@ require('dotenv').config();
 var connection = mysql.createConnection({
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASS || 'Root',
+    password: process.env.DB_PASS || 'ROOT',
     database: process.env.DB_NAME || 'meesho'
 });
 

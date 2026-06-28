@@ -4,18 +4,9 @@ var db = require('../db.js');
 var bcrypt = require('bcrypt');
 var { sendOTP, generateOTP } = require('../utils/sendOTP');
 
-// Home page
-
-router.get('/', (req, res) => {
-    res.render('user/index', {
-        user: req.session.user || null
-    });
-});
-
-
 // Signup page
 router.get('/signup', (req, res) => {
-    res.render('signup', { error: null });
+    res.render('signup');
 });
 
 // Handle signup
@@ -49,7 +40,7 @@ router.post('/signup', async (req, res) => {
         // Store email in session
         req.session.pendingEmail = email;
 
-        res.render('verifyOTP', { email: email, error: null, success: null });
+        res.render('verifyOTP', { email: email });
     } catch (error) {
         console.error('Signup error:', error);
         if (error.code === 'ER_DUP_ENTRY') {
@@ -66,7 +57,7 @@ router.post('/verify-otp', async (req, res) => {
         const { otp, email } = req.body;
 
         if (!otp || !email) {
-            return res.render('verifyOTP', { email, error: 'OTP is required', success: null });
+            return res.render('verifyOTP', { email, error: 'OTP is required' });
         }
 
         // Get user
@@ -74,23 +65,23 @@ router.post('/verify-otp', async (req, res) => {
         const singup = await db(sql, [email]);
 
         if (!singup || singup.length === 0) {
-            return res.render('verifyOTP', { email, error: 'User not found', success: null });
+            return res.render('verifyOTP', { email, error: 'User not found' });
         }
 
         const user = singup[0];
 
-        // Check OTP expiry (10 minutes)
+        // Check if OTP has expired (10 minutes)
         const otpCreatedAt = new Date(user.otp_created_at);
         const currentTime = new Date();
         const otpAgeMinutes = (currentTime - otpCreatedAt) / (1000 * 60);
 
         if (otpAgeMinutes > 10) {
-            return res.render('verifyOTP', { email, error: 'OTP has expired. Please sign up again.', success: null });
+            return res.render('verifyOTP', { email, error: 'OTP has expired. Please sign up again.' });
         }
 
         // Verify OTP
         if (user.otp !== otp) {
-            return res.render('verifyOTP', { email, error: 'Invalid OTP. Please try again.', success: null });
+            return res.render('verifyOTP', { email, error: 'Invalid OTP. Please try again.' });
         }
 
         // Update user as verified
@@ -105,14 +96,11 @@ router.post('/verify-otp', async (req, res) => {
             email: user.email
         };
 
+        // Redirect to dashboard or home
         res.redirect('/dashboard');
     } catch (error) {
         console.error('OTP verification error:', error);
-        res.render('verifyOTP', {
-            email: req.body.email,
-            error: 'An error occurred. Please try again.',
-            success: null
-        });
+        res.render('verifyOTP', { email: req.body.email, error: 'An error occurred. Please try again.' });
     }
 });
 
@@ -130,7 +118,7 @@ router.get('/resend-otp', async (req, res) => {
         const singup = await db(sql, [email]);
 
         if (!singup || singup.length === 0) {
-            return res.render('verifyOTP', { email, error: 'User not found', success: null });
+            return res.render('verifyOTP', { email, error: 'User not found' });
         }
 
         // Generate new OTP
@@ -145,21 +133,17 @@ router.get('/resend-otp', async (req, res) => {
         const emailResult = await sendOTP(email, otp);
 
         if (!emailResult.success) {
-            return res.render('verifyOTP', { email, error: 'Failed to resend OTP. Please try again.', success: null });
+            return res.render('verifyOTP', { email, error: 'Failed to resend OTP. Please try again.' });
         }
 
-        res.render('verifyOTP', { email, error: null, success: 'New OTP sent to your email.' });
+        res.render('verifyOTP', { email, success: 'New OTP sent to your email.' });
     } catch (error) {
         console.error('Resend OTP error:', error);
-        res.render('verifyOTP', {
-            email: req.query.email,
-            error: 'An error occurred. Please try again.',
-            success: null
-        });
+        res.render('verifyOTP', { email: req.query.email, error: 'An error occurred. Please try again.' });
     }
 });
 
-// Dashboard
+// Dashboard (protected route)
 router.get('/dashboard', (req, res) => {
     if (!req.session.userId) {
         return res.redirect('/login');
@@ -169,7 +153,7 @@ router.get('/dashboard', (req, res) => {
 
 // Login page
 router.get('/login', (req, res) => {
-    res.render('login', { error: null });
+    res.render('login');
 });
 
 // Handle login
@@ -191,7 +175,7 @@ router.post('/login', async (req, res) => {
 
         const user = singup[0];
 
-        // Check verified
+        // Check if email is verified
         if (!user.is_verified) {
             return res.render('login', { error: 'Please verify your email first' });
         }
@@ -230,4 +214,11 @@ router.get('/logout', (req, res) => {
 
 
 
+// Home page
+
+router.get('/', (req, res) => {
+    res.render('user/index', {
+        user: req.session.user || null
+    });
+});
 module.exports = router;
