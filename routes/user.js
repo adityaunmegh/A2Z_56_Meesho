@@ -212,9 +212,13 @@ router.get('/logout', (req, res) => {
     });
 });
 
-// Home page
-router.get('/', (req, res) => {
-    res.send('Welcome to A2Z Meesho - Email Verification Setup Complete!');
-});
 
+
+// Home page
+
+router.get('/', (req, res) => {
+    res.render('user/index', {
+        user: req.session.user || null
+    });
+});
 module.exports = router;
