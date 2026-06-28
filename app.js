@@ -13,6 +13,10 @@ var user = require('./Routes/user.js');
 var setupDatabase = require('./dbSetup');
 var admin = require('./routes/admin.js');
 var user = require('./routes/user.js');
+var sai = require('./routes/sai.js');
+var rahul = require('./routes/rahul.js');
+
+
 
 // Initialize database on startup
 setupDatabase();
@@ -35,6 +39,8 @@ app.use(session({
 // Mount routes
 app.use('/', user);
 app.use('/admin', admin);
+app.use('/sai', sai);
+app.use('/rahul', rahul);
 
 // Start server
 var PORT = process.env.PORT || 3000;
@@ -44,6 +50,9 @@ app.listen(PORT, function () {
 // Routes
 app.use('/', user);
 app.use('/admin', admin);
+app.use('/sai', sai);
+app.use('/rahul', rahul);
+
 
 app.listen(3000, () => {
     console.log("Server running on http://localhost:3000");
